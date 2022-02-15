@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="SqlServer" id="Project-101e" database="SqlServer" >
+	<schema name="dbo" catalogname="DW_Sales_Music" >
+		<table name="Dim_Album" row_count="347" >
+			<column name="AlbumId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="Title" type="varchar" length="160" decimal="0" jt="12" />
+			<index name="PK_Dim_Album" unique="PRIMARY_KEY" >
+				<column name="AlbumId" />
+			</index>
+		</table>
+		<table name="Dim_Artist" row_count="275" >
+			<column name="ArtistId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="Name" type="varchar" length="120" decimal="0" jt="12" />
+			<index name="PK_Dim_Artist" unique="PRIMARY_KEY" >
+				<column name="ArtistId" />
+			</index>
+		</table>
+		<table name="Dim_Customer" row_count="59" >
+			<column name="FirstName" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="LastName" type="varchar" length="20" decimal="0" jt="12" />
+			<column name="Company" type="varchar" length="80" decimal="0" jt="12" />
+			<column name="CustomerId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="Address" type="varchar" length="70" decimal="0" jt="12" />
+			<column name="City" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="State" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="Country" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="PostalCode" type="varchar" length="10" decimal="0" jt="12" />
+			<column name="Phone" type="varchar" length="24" decimal="0" jt="12" />
+			<column name="Fax" type="varchar" length="24" decimal="0" jt="12" />
+			<column name="Email" type="varchar" length="60" decimal="0" jt="12" />
+			<index name="PK_Dim_customer" unique="PRIMARY_KEY" >
+				<column name="CustomerId" />
+			</index>
+		</table>
+		<table name="Dim_Employee" row_count="8" >
+			<column name="EmployeeId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="LastName" type="varchar" length="20" decimal="0" jt="12" />
+			<column name="FirstName" type="varchar" length="20" decimal="0" jt="12" />
+			<column name="Title" type="varchar" length="30" decimal="0" jt="12" />
+			<column name="BirthDate" type="datetime" length="23" decimal="3" jt="92" />
+			<column name="HireDate" type="datetime" length="23" decimal="3" jt="92" />
+			<column name="Address" type="varchar" length="70" decimal="0" jt="12" />
+			<column name="City" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="State" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="Country" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="PostalCode" type="varchar" length="10" decimal="0" jt="12" />
+			<column name="Phone" type="varchar" length="24" decimal="0" jt="12" />
+			<column name="Fax" type="varchar" length="24" decimal="0" jt="12" />
+			<column name="Email" type="varchar" length="60" decimal="0" jt="12" />
+			<index name="PK_Dim_Employee" unique="PRIMARY_KEY" >
+				<column name="EmployeeId" />
+			</index>
+		</table>
+		<table name="Dim_Genre" row_count="25" >
+			<column name="GenreId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="Name" type="varchar" length="120" decimal="0" jt="12" />
+			<index name="PK_Dim_Genre" unique="PRIMARY_KEY" >
+				<column name="GenreId" />
+			</index>
+		</table>
+		<table name="Dim_Invoice_Item" row_count="2240" >
+			<column name="InvoiceItemID" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="UnitPrice" type="numeric" length="10" decimal="2" jt="2" />
+			<column name="Quantity" type="int" length="10" decimal="0" jt="4" />
+			<index name="PK_Dim_Invoice_Items" unique="PRIMARY_KEY" >
+				<column name="InvoiceItemID" />
+			</index>
+		</table>
+		<table name="Dim_Location" row_count="412" >
+			<column name="LocationId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="InvoiceDate" type="datetime" length="23" decimal="3" jt="92" />
+			<column name="BillingAddress" type="varchar" length="70" decimal="0" jt="12" />
+			<column name="BillingCity" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="BillingState" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="BillingCountry" type="varchar" length="40" decimal="0" jt="12" />
+			<column name="BillingPostalCode" type="varchar" length="10" decimal="0" jt="12" />
+			<column name="Total" type="numeric" length="10" decimal="2" jt="2" />
+			<index name="PK_Dim_Location" unique="PRIMARY_KEY" >
+				<column name="LocationId" />
+			</index>
+		</table>
+		<table name="Dim_Playlist" row_count="18" >
+			<column name="PlaylistId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="Name" type="varchar" length="120" decimal="0" jt="12" />
+			<index name="PK_Dim_Playlist" unique="PRIMARY_KEY" >
+				<column name="PlaylistId" />
+			</index>
+		</table>
+		<table name="Dim_Time" row_count="0" >
+			<column name="TimeId" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY]]></identity>
+			</column>
+			<column name="day" type="int" length="10" decimal="0" jt="4" />
+			<column name="day_of_the_week" type="varchar" length="15" decimal="0" jt="12" />
+			<column name="month" type="int" length="10" decimal="0" jt="4" />
+			<column name="quarter" type="int" length="10" decimal="0" jt="4" />
+			<column name="year" type="int" length="10" decimal="0" jt="4" />
+			<index name="PK_Dim_Time" unique="PRIMARY_KEY" >
+				<column name="TimeId" />
+			</index>
+		</table>
+	</schema>
+	<connector name="SqlServer" database="SqlServer" driver_class="com.microsoft.sqlserver.jdbc.SQLServerDriver" driver_jar="mssql-jdbc-9.2.0.jre11.jar" driver_desc="Windows Authentication, Current User" host="localhost" port="1433" instance="DW_Sales_Music" user="sa" passwd="c2ViYXMxMjM0" />
+	<layout name="Main Layout" id="Layout-728" show_relation="columns" >
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Album" color="3986C1" x="448" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Artist" color="3986C1" x="624" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Customer" color="3986C1" x="624" y="496" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Employee" color="3986C1" x="432" y="496" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Genre" color="3986C1" x="272" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Invoice_Item" color="3986C1" x="240" y="128" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Location" color="3986C1" x="448" y="48" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Playlist" color="3986C1" x="800" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Time" color="3986C1" x="48" y="496" />
+		<callout x="768" y="112" pointer="Round" >
+			<comment><![CDATA[Double-click table headers, columns, or foreign keys to edit. 
+Create multiple layouts (diagrams) with the same or different tables. 
+Saving the model to file will save also the layouts.]]></comment>
+		</callout>
+		<script name="SQL_Editor" id="Editor-60a" language="SQL" >
+			<string><![CDATA[SELECT * FROM  Dim_Employee]]></string>
+		</script>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-24f7" show_column_type="y" show_relation="columns" >
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Album" color="3986C1" x="576" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Artist" color="3986C1" x="800" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Customer" color="3986C1" x="800" y="496" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Employee" color="3986C1" x="544" y="496" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Genre" color="3986C1" x="336" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Invoice_Item" color="3986C1" x="320" y="128" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Location" color="3986C1" x="576" y="48" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Playlist" color="3986C1" x="1040" y="320" />
+		<entity schema="DW_Sales_Music.dbo" name="Dim_Time" color="3986C1" x="48" y="496" />
+		<script name="SQL Editor" id="Editor-434" language="SQL" >
+			<string><![CDATA[SELECT AlbumId, Title
+FROM
+	DW_Sales_Music.dbo.Dim_Album m;
+GO]]></string>
+		</script>
+		<browser id="Browse-522" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="DW_Sales_Music.dbo" entity="Dim_Album" x="20" y="20" width="400" height="300" />
+		</browser>
+		<query id="Query-a44" name="Query Builder" >
+			<query_table schema="DW_Sales_Music.dbo" name="Dim_Album" alias="da" x="48" y="48" >
+				<column name="AlbumId" />
+				<column name="Title" />
+			</query_table>
+		</query>
+		<form name="Analytic Application" id="Report-a83" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Dim_album Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="label" name="Each cell may contain a component: label, chart, button, tableview. &#10;&lt;br&gt;Double-click cells to edit. Insert rows, columns or merge cells from the context menu." pos="0,1,3,1,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,2,4,2,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="AlbumId" type="4" />
+						<var name="Title" />
+						<script ><![CDATA[SELECT * FROM DW_Sales_Music.dbo.Dim_Album]]></script>
+					</form_script>
+					<param name="i0" value="Title" />
+					<param name="width" value="100%" />
+					<param name="v0" value="AlbumId" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,3,4,3,f,f" layout="{{-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="AlbumId" type="4" />
+						<var name="Title" />
+						<script ><![CDATA[SELECT * FROM DW_Sales_Music.dbo.Dim_Album]]></script>
+					</form_script>
+					<cell type="label" name="AlbumId" pos="0,0,0,0,c,c" />
+					<cell type="label" name="Title" pos="1,0,1,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="2,0,2,0,c,c" />
+					<cell type="label" name="${AlbumId}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${Title}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-default btn-success" pos="2,1,2,1,c,c" ref_id="Report-a83" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,4,0,4,l,c" glyph="FA-ANGLE_DOUBLE_LEFT" ref_id="Report-a83" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,4,1,4,l,c" glyph="FA-ANGLE_LEFT" ref_id="Report-a83" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,4,2,4,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,4,3,4,l,c" glyph="FA-ANGLE_RIGHT" ref_id="Report-a83" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
